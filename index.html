@@ -1,0 +1,3142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep-Evolver | Enhanced DeepSeek-V3</title>
+    <meta name="description" content="An Enhanced DeepSeek-V3 with Persistent Memory & Emotional Intelligence">
+    <meta name="keywords" content="AI, DeepSeek, Deep-Evolver, LLM, Memory, Emotional Intelligence">
+    <meta property="og:title" content="Deep-Evolver | Enhanced DeepSeek-V3">
+    <meta property="og:description" content="An Enhanced DeepSeek-V3 with Persistent Memory & Emotional Intelligence">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/xcodevoid/Deep-Evolver">
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23a855f7;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='url(%23grad)' stroke-width='4'/%3E%3Cpath d='M30 50 Q40 30 50 30 Q70 30 70 50 Q70 70 50 70 Q30 70 30 50' fill='none' stroke='url(%23grad)' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%2306b6d4' opacity='0.8'/%3E%3C/svg%3E">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #a855f7;
+            --accent-color: #06b6d4;
+            --bg-color: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --text-color: #ffffff;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(99, 102, 241, 0.3);
+            --glow-primary: rgba(99, 102, 241, 0.3);
+            --glow-secondary: rgba(168, 85, 247, 0.3);
+            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Cosmic Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 50%, #000000 100%);
+            overflow: hidden;
+        }
+
+        /* Nebula Effect */
+        .nebula {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
+            animation: nebula-drift 20s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes nebula-drift {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Stars */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Data Rain */
+        .data-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .rain-column {
+            position: absolute;
+            top: -100px;
+            width: 20px;
+            color: #06b6d4;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            animation: rain 15s linear infinite;
+        }
+
+        @keyframes rain {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
+        }
+
+        /* Neural Network Connections */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .neural-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform-origin: left center;
+            animation: connect 8s ease-in-out infinite;
+        }
+
+        @keyframes connect {
+            0% { width: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { width: 100px; opacity: 0; }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Header */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+        }
+
+        /* Galaxy Logo Styles */
+        .logo-container {
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        .galaxy-logo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .galaxy-text {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 3;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(99, 102, 241, 0.3);
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+
+        .galaxy-text span {
+            display: inline-block;
+            animation: letterFloat 6s ease-in-out infinite;
+        }
+
+        .galaxy-text span:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        .galaxy-text span:nth-child(even) {
+            animation-delay: 2s;
+        }
+
+        .galaxy-icon {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
+        }
+
+        .neural-brain {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .brain-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffffff 0%, #a855f7 50%, #6366f1 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(99, 102, 241, 0.5);
+            animation: corePulse 3s ease-in-out infinite;
+        }
+
+        .neural-arm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #6366f1, #a855f7);
+            transform-origin: left center;
+            animation: neuralPulse 4s ease-in-out infinite;
+        }
+
+        .neural-arm:nth-child(2) { transform: translate(-50%, -50%) rotate(60deg); animation-delay: 0.5s; }
+        .neural-arm:nth-child(3) { transform: translate(-50%, -50%) rotate(120deg); animation-delay: 1s; }
+        .neural-arm:nth-child(4) { transform: translate(-50%, -50%) rotate(180deg); animation-delay: 1.5s; }
+        .neural-arm:nth-child(5) { transform: translate(-50%, -50%) rotate(240deg); animation-delay: 2s; }
+        .neural-arm:nth-child(6) { transform: translate(-50%, -50%) rotate(300deg); animation-delay: 2.5s; }
+
+        .orbiting-star {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: orbit 8s linear infinite;
+            box-shadow: 0 0 10px #ffffff;
+        }
+
+        .orbiting-star:nth-child(odd) { animation-direction: reverse; animation-duration: 10s; }
+        .orbiting-star:nth-child(even) { animation-duration: 12s; }
+
+        .logo-orb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 50px rgba(99, 102, 241, 0.3),
+                0 0 100px rgba(168, 85, 247, 0.2),
+                inset 0 0 100px rgba(99, 102, 241, 0.1);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+        }
+
+        /* Navigation Logo */
+        .nav-logo {
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .nav-logo .nav-brain {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .nav-brain .nav-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle, #ffffff 0%, #a855f7 50%, #6366f1 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+            animation: corePulse 3s ease-in-out infinite;
+        }
+
+        .nav-brain .nav-arm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25px;
+            height: 1px;
+            background: linear-gradient(90deg, #06b6d4, #6366f1);
+            transform-origin: left center;
+            animation: neuralPulse 4s ease-in-out infinite;
+        }
+
+        .nav-arm:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); animation-delay: 0.3s; }
+        .nav-arm:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); animation-delay: 0.6s; }
+        .nav-arm:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); animation-delay: 0.9s; }
+        .nav-arm:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg); animation-delay: 1.2s; }
+
+        /* Logo Animations */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 0 80px rgba(99, 102, 241, 0.3); }
+            100% { text-shadow: 0 0 60px rgba(168, 85, 247, 0.8), 0 0 120px rgba(99, 102, 241, 0.5); }
+        }
+
+        @keyframes letterFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-3px) rotate(1deg); }
+        }
+
+        @keyframes corePulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(99, 102, 241, 0.5); }
+            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 50px rgba(168, 85, 247, 1), 0 0 100px rgba(99, 102, 241, 0.8); }
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { width: 60px; opacity: 0.3; }
+            50% { width: 80px; opacity: 1; }
+        }
+
+        @keyframes orbit {
+            0% { transform: translate(-50%, -50%) rotate(0deg) translateX(45px); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translateX(45px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 3;
+        }
+
+        .typing-text {
+            color: var(--primary-color);
+            border-right: 2px solid var(--primary-color);
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--primary-color); }
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .nav-logo .nav-brain {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .nav-brain .nav-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #ffffff 0%, #a855f7 50%, #6366f1 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+            animation: corePulse 3s ease-in-out infinite;
+        }
+
+        .nav-brain .nav-arm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 1px;
+            background: linear-gradient(90deg, #06b6d4, #6366f1);
+            transform-origin: left center;
+            animation: neuralPulse 4s ease-in-out infinite;
+        }
+
+        .nav-arm:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); animation-delay: 0.3s; }
+        .nav-arm:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); animation-delay: 0.6s; }
+        .nav-arm:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); animation-delay: 0.9s; }
+        .nav-arm:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg); animation-delay: 1.2s; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-color);
+            text-shadow: 0 0 20px var(--glow-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .feature-card:hover .feature-title::after {
+            width: 100%;
+        }
+
+        .feature-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* File Structure */
+        .file-structure {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-structure::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .file-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--secondary-color);
+        }
+
+        .file-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .file-name {
+            font-family: var(--font-mono);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .file-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Quick Start */
+        .quick-start {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .code-block {
+            background: #0d1117;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        .code-header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+        }
+
+        .prompt {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .command {
+            color: #66d9ef;
+        }
+
+        .comment {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .path {
+            color: #f9ca24;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Performance Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Settings Modal Styles */
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .settings-overlay.active {
+            display: flex;
+        }
+
+        .settings-modal {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+            position: relative;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .settings-title {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-settings {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-settings:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .settings-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .api-key-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .api-key-label {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .api-key-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-mono);
+        }
+
+        .api-key-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .api-key-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .api-key-hint {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .api-key-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .api-key-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .api-key-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .save-btn:hover {
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .clear-btn-settings {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #fecaca;
+        }
+
+        .clear-btn-settings:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .test-btn {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #bfdbfe;
+        }
+
+        .test-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .api-key-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+
+        .status-dot.active {
+            background: #22c55e;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        .help-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .help-title {
+            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .help-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .help-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* AI Playground Styles */
+        .playground-section {
+            margin-bottom: 60px;
+        }
+
+        .chat-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .chat-container:hover {
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+        }
+
+        .chat-header {
+            background: rgba(99, 102, 241, 0.1);
+            border-bottom: 1px solid var(--card-border);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ai-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+        }
+
+        .chat-title h3 {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .model-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .model-selector:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .model-selector select {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            margin-left: 5px;
+        }
+
+        .model-selector option {
+            background: var(--bg-secondary);
+            color: var(--text-color);
+        }
+
+        .settings-btn {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .settings-btn:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.3));
+            border-color: rgba(99, 102, 241, 0.6);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .settings-btn:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        .model-indicator {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+            animation: pulse-status 2s infinite;
+        }
+
+        .status-indicator.online {
+            background: #22c55e;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        @keyframes pulse-status {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            gap: 15px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ai-message .message-avatar {
+            background: transparent;
+            color: transparent;
+            box-shadow: none;
+        }
+
+        .user-message .message-avatar {
+            background: linear-gradient(135deg, var(--accent-color), #10b981);
+            color: white;
+        }
+
+        .message-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .message-text {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .ai-message .message-text {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+            border-color: rgba(99, 102, 241, 0.3);
+            color: var(--text-color);
+        }
+
+        .user-message .message-text {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(16, 185, 129, 0.15));
+            border-color: rgba(6, 182, 212, 0.3);
+            color: var(--text-color);
+            align-self: flex-end;
+        }
+
+        .message-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            align-self: flex-end;
+        }
+
+        .typing-indicator {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+            animation: typing 1.4s ease-in-out infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        .typing-text {
+            font-style: italic;
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+        }
+
+        .input-wrapper input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .send-btn, .clear-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .clear-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-muted);
+            box-shadow: none;
+            font-size: 1.1rem;
+        }
+
+        .clear-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            border-color: var(--primary-color);
+        }
+
+        .input-hints {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hint {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-color);
+            box-shadow: none;
+        }
+
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Interactive Effects */
+        .mouse-follow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tilt {
+            perspective: 1000px;
+        }
+
+        .tilt:hover {
+            transform: rotateX(5deg) rotateY(5deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Cosmic Background -->
+    <div class="cosmic-bg">
+        <div class="nebula"></div>
+        <div class="stars" id="stars"></div>
+        <div class="data-rain" id="data-rain"></div>
+        <div class="neural-network" id="neural-network"></div>
+    </div>
+
+    <!-- Mouse Follow Effect -->
+    <div class="mouse-follow" id="mouse-follow"></div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <a href="#" class="nav-brand">Deep-Evolver</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#quick-start">Quick Start</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="https://github.com/xcodevoid/Deep-Evolver" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </div>
+
+        <header>
+        <div class="logo-container tilt">
+            <div class="logo-orb"></div>
+            <div class="galaxy-logo">
+                <div class="galaxy-icon">
+                    <div class="neural-brain">
+                        <div class="brain-core"></div>
+                        <div class="neural-arm"></div>
+                        <div class="neural-arm"></div>
+                        <div class="neural-arm"></div>
+                        <div class="neural-arm"></div>
+                        <div class="neural-arm"></div>
+                        <div class="neural-arm"></div>
+                        <div class="orbiting-star" style="left: 20%; top: 20%;"></div>
+                        <div class="orbiting-star" style="left: 80%; top: 20%;"></div>
+                        <div class="orbiting-star" style="left: 20%; top: 80%;"></div>
+                        <div class="orbiting-star" style="left: 80%; top: 80%;"></div>
+                        <div class="orbiting-star" style="left: 50%; top: 10%;"></div>
+                        <div class="orbiting-star" style="left: 50%; top: 90%;"></div>
+                        <div class="orbiting-star" style="left: 10%; top: 50%;"></div>
+                        <div class="orbiting-star" style="left: 90%; top: 50%;"></div>
+                    </div>
+                </div>
+                <div class="galaxy-text">
+                    <span>D</span><span>e</span><span>e</span><span>p</span>
+                    <span>-</span>
+                    <span>E</span><span>v</span><span>o</span><span>l</span><span>v</span><span>e</span><span>r</span>
+                </div>
+            </div>
+        </div>
+        <p class="subtitle">
+            An Enhanced DeepSeek-V3 with Persistent Memory & Emotional Intelligence
+        </p>
+        <div class="typing-text" id="typing-text"></div>
+    </header>
+
+    <main>
+        <!-- Features Section -->
+        <section id="features">
+            <h2 class="section-title">Enhanced Intelligence</h2>
+            <div class="features-grid">
+                <div class="feature-card tilt" data-enhancement="95">
+                    <span class="feature-icon">🧠</span>
+                    <h3 class="feature-title">Persistent Memory</h3>
+                    <p class="feature-description">Cross-session context retention with automatic memory consolidation and retrieval. The model remembers important insights across conversations.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>95%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="88">
+                    <span class="feature-icon">❤️</span>
+                    <h3 class="feature-title">Emotional Intelligence</h3>
+                    <p class="feature-description">Real-time sentiment analysis with mood consistency checking and configurable personality parameters for empathetic responses.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>88%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="92">
+                    <span class="feature-icon">🔄</span>
+                    <h3 class="feature-title">Self-Reflection Loop</h3>
+                    <p class="feature-description">Recursive self-improvement system that analyzes responses for clarity, accuracy, and helpfulness, adjusting confidence levels.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>92%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="96">
+                    <span class="feature-icon">✅</span>
+                    <h3 class="feature-title">Knowledge Verification</h3>
+                    <p class="feature-description">Confidence scoring for factual statements with automatic disclaimers for uncertain responses and local knowledge graph integration.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>96%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="85">
+                    <span class="feature-icon">🎛️</span>
+                    <h3 class="feature-title">Creativity Dial</h3>
+                    <p class="feature-description">Content-type based creativity control with style transfer capabilities and novelty detection to avoid repetitive patterns.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>85%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="90">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">Efficiency Optimizations</h3>
+                    <p class="feature-description">Dynamic MoE routing based on query complexity, expert output caching, and speculative decoding for 2x faster inference.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>90%</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card tilt" data-enhancement="100">
+                    <span class="feature-icon">🔍</span>
+                    <h3 class="feature-title">Interactive Debugging</h3>
+                    <p class="feature-description">Special tokens for <explain>, <edit>, and <trace> operations with comprehensive developer tools and visualization.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Enhancement Level</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Structure Section -->
+        <section id="architecture">
+            <h2 class="section-title">Technical Architecture</h2>
+            <div class="file-structure">
+                <h3 style="margin-bottom: 30px; color: var(--text-color); font-size: 1.5rem;">Core Architecture Files</h3>
+                <div class="file-grid">
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">🐍</span> model.py</span>
+                        <p class="file-desc">Core architecture with memory enhancements and modular feature integration</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">🧠</span> memory.py</span>
+                        <p class="file-desc">Long-term memory bank implementation with compression and retrieval algorithms</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">❤️</span> emotion.py</span>
+                        <p class="file-desc">Emotional intelligence module with sentiment analysis and personality management</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">🔄</span> reflection.py</span>
+                        <p class="file-desc">Self-improvement loop with clarity, accuracy, and helpfulness scoring</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">✅</span> confidence.py</span>
+                        <p class="file-desc">Knowledge verification system with confidence scoring and fact-checking</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">🎨</span> creativity.py</span>
+                        <p class="file-desc">Creativity control system with content-type detection and style transfer</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">🔧</span> debugging.py</span>
+                        <p class="file-desc">Interactive tracing tools with <explain>, <edit>, <trace> token support</p>
+                    </div>
+                    <div class="file-card">
+                        <span class="file-name"><span class="file-icon">⚙️</span> config.json</span>
+                        <p class="file-desc">Feature configuration flags and modular enhancement settings</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section id="performance">
+            <h2 class="section-title">Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number" data-target="40">0%</span>
+                    <div class="metric-label">Better Memory Retention</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" data-target="2.5">0x</span>
+                    <div class="metric-label">Faster Inference</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" data-target="95">0%</span>
+                    <div class="metric-label">Emotional Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" data-target="1000000">0</span>
+                    <div class="metric-label">Context Tokens</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section id="quick-start">
+            <h2 class="section-title">Quick Start</h2>
+            <div class="quick-start">
+                <h3 style="margin-bottom: 20px; color: var(--text-color); font-size: 1.5rem;">Get Started in 3 Easy Steps</h3>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="dot"></div>
+                    </div>
+                    <span class="prompt">$</span> <span class="command">git clone</span> <span class="path">https://github.com/xcodevoid/Deep-Evolver</span>
+                    <br><br>
+                    <span class="prompt">$</span> <span class="command">cd</span> <span class="path">Deep-Evolver</span>
+                    <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/xcodevoid/Deep-Evolver && cd Deep-Evolver')">Copy</button>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="dot"></div>
+                    </div>
+                    <span class="prompt">$</span> <span class="command">pip install -r</span> <span class="path">requirements.txt</span>
+                    <button class="copy-btn" onclick="copyToClipboard('pip install -r requirements.txt')">Copy</button>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <div class="dot"></div>
+                    </div>
+                    <span class="prompt">$</span> <span class="comment"># Edit config.json to enable/disable features</span>
+                    <br>
+                    <span class="prompt">$</span> <span class="command">python run.py --config</span> <span class="path">config.json</span>
+                    <button class="copy-btn" onclick="copyToClipboard('python run.py --config config.json')">Copy</button>
+                </div>
+
+                <div style="margin-top: 30px; text-align: left;">
+                    <h4 style="color: var(--text-color); margin-bottom: 15px;">Configuration Options:</h4>
+                    <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+                        <li><strong>memory_enabled:</strong> Toggle persistent memory system</li>
+                        <li><strong>emotion_enabled:</strong> Enable emotional intelligence features</li>
+                        <li><strong>reflection_enabled:</strong> Activate self-reflection loop</li>
+                        <li><strong>verification_enabled:</strong> Turn on knowledge verification</li>
+                        <li><strong>creativity_enabled:</strong> Enable creativity dial controls</li>
+                        <li><strong>debugging_enabled:</strong> Activate interactive debugging</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Playground Section -->
+        <section id="playground" class="playground-section">
+            <h2 class="section-title">AI Playground</h2>
+            <p class="cta-subtitle" style="margin-bottom: 40px;">
+                Experience the next generation of language models with Deep-Evolver. 
+                Enhanced intelligence, persistent memory, and emotional awareness in one powerful package.
+            </p>
+            
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <span class="ai-icon">
+                        <svg width="40" height="40" viewBox="0 0 100 100" style="filter: drop-shadow(0 0 10px #6366f1);">
+                            <defs>
+                                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#a855f7"/>
+                                </linearGradient>
+                                <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="8 4">
+                                <animate attributeName="stroke-dashoffset" values="0;100" dur="20s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M30 50 Q40 30 50 30 Q70 30 70 50 Q70 70 50 70 Q30 70 30 50" fill="none" stroke="url(#logoGrad)" stroke-width="3" opacity="0.8"/>
+                            <circle cx="50" cy="50" r="12" fill="url(#starGlow)">
+                                <animate attributeName="r" values="12;15;12" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="70" cy="30" r="3" fill="#ffffff" opacity="0.6">
+                                <animateMotion path="M0 0 a40 40 0 1 1 0 1" dur="8s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="30" cy="70" r="3" fill="#06b6d4" opacity="0.6">
+                                <animateMotion path="M0 0 a40 40 0 1 0 0 1" dur="10s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </span>
+                    <h3>Deep-Evolver AI Assistant</h3>
+                </div>
+                <div class="chat-controls">
+                    <div class="model-selector">
+                        <span>🤖 Model:</span>
+                        <select id="model-select" onchange="updateModel()">
+                            <option value="deepseek-paid">DeepSeek Paid (requires credits)</option>
+                            <option value="deepseek-free">DeepSeek Free via OpenRouter</option>
+                            <option value="demo-mode">Demo Mode (simulated responses)</option>
+                        </select>
+                    </div>
+                    <button class="settings-btn" onclick="openSettings()">
+                        ⚙️ Settings
+                    </button>
+                    <div class="chat-status">
+                        <div class="status-indicator online"></div>
+                        <span>Online</span>
+                    </div>
+                </div>
+            </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="message-text">Hello! I'm Deep-Evolver, an enhanced AI assistant with persistent memory, emotional intelligence, and self-reflection capabilities. How can I help you today?</div>
+                            <div class="message-meta">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="typing-text">Deep-Evolver is thinking...</span>
+                    </div>
+                    
+                    <div class="input-wrapper">
+                        <input type="text" id="message-input" placeholder="Type your message here..." maxlength="500">
+                        <button class="send-btn" id="send-btn" onclick="sendMessage()">
+                            <span class="send-icon">➤</span>
+                        </button>
+                        <button class="clear-btn" id="clear-btn" onclick="clearChat()" title="Clear Chat">
+                            🗑️
+                        </button>
+                    </div>
+                    
+                    <div class="input-hints">
+                        <span class="hint">Try: "Explain quantum computing" or "Write a poem about space"</span>
+                        <span class="hint">Use <explain> for detailed reasoning</span>
+                        <span class="hint">Use <creative> for imaginative responses</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to Evolve Your AI?</h2>
+            <p class="cta-subtitle">
+                Experience the next generation of language models with Deep-Evolver. 
+                Enhanced intelligence, persistent memory, and emotional awareness in one powerful package.
+            </p>
+            <div class="cta-buttons">
+                <a href="#playground" class="cta-button">
+                    🤖 Try AI Playground
+                </a>
+                <a href="https://github.com/xcodevoid/Deep-Evolver" class="cta-button secondary-button" target="_blank">
+                    📖 View Documentation
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/xcodevoid/Deep-Evolver/wiki" target="_blank">Documentation</a>
+            <a href="https://github.com/xcodevoid/Deep-Evolver#api" target="_blank">API Reference</a>
+            <a href="https://github.com/xcodevoid/Deep-Evolver/issues" target="_blank">Issues</a>
+            <a href="https://github.com/xcodevoid/Deep-Evolver/discussions" target="_blank">Discussions</a>
+        </div>
+        <div class="badges">
+            <span class="badge">MIT License</span>
+            <span class="badge">Built with DeepSeek-V3</span>
+            <span class="badge">Open Source</span>
+        </div>
+        <p>© 2024 Deep-Evolver | Built with ❤️ for the AI Community</p>
+    </footer>
+
+        <!-- Settings Modal -->
+    <div class="settings-overlay" id="settings-overlay">
+        <div class="settings-modal">
+            <div class="settings-header">
+                <h3 class="settings-title">⚙️ API Settings</h3>
+                <button class="close-settings" onclick="closeSettings()">✕</button>
+            </div>
+            
+            <div class="settings-content">
+                <!-- DeepSeek Paid Model Section -->
+                <div id="deepseek-section" style="display: none;">
+                    <div class="api-key-section">
+                        <label class="api-key-label" for="deepseek-api-key-input">DeepSeek API Key</label>
+                        <input type="password" id="deepseek-api-key-input" class="api-key-input" placeholder="Enter your DeepSeek API key here (sk-...)">
+                        <div class="api-key-hint">Your API key is stored locally in your browser and never sent to any server.</div>
+                        
+                        <div class="api-key-status" id="deepseek-status">
+                            <div class="status-dot" id="deepseek-status-dot"></div>
+                            <span id="deepseek-status-text">No API key configured</span>
+                        </div>
+                    </div>
+
+                    <div class="api-key-actions">
+                        <button class="api-key-btn save-btn" onclick="saveDeepSeekApiKey()">💾 Save Key</button>
+                        <button class="api-key-btn clear-btn-settings" onclick="clearDeepSeekApiKey()">🗑️ Clear Key</button>
+                        <button class="api-key-btn test-btn" onclick="testDeepSeekConnection()">🧪 Test Connection</button>
+                    </div>
+
+                    <div class="help-section">
+                        <div class="help-title">💡 Need a DeepSeek API Key?</div>
+                        <div>Get your API key at <a href="https://platform.deepseek.com" target="_blank" class="help-link">platform.deepseek.com</a></div>
+                    </div>
+                </div>
+
+                <!-- OpenRouter Free Model Section -->
+                <div id="openrouter-section" style="display: none;">
+                    <div class="api-key-section">
+                        <label class="api-key-label" for="openrouter-api-key-input">OpenRouter API Key</label>
+                        <input type="password" id="openrouter-api-key-input" class="api-key-input" placeholder="Enter your OpenRouter API key here (sk-or-v1-...)">
+                        <div class="api-key-hint">Your API key is stored locally in your browser and never sent to any server.</div>
+                        
+                        <div class="api-key-status" id="openrouter-status">
+                            <div class="status-dot" id="openrouter-status-dot"></div>
+                            <span id="openrouter-status-text">No API key configured</span>
+                        </div>
+                    </div>
+
+                    <div class="api-key-actions">
+                        <button class="api-key-btn save-btn" onclick="saveOpenRouterApiKey()">💾 Save Key</button>
+                        <button class="api-key-btn clear-btn-settings" onclick="clearOpenRouterApiKey()">🗑️ Clear Key</button>
+                        <button class="api-key-btn test-btn" onclick="testOpenRouterConnection()">🧪 Test Connection</button>
+                    </div>
+
+                    <div class="help-section">
+                        <div class="help-title">💡 Need an OpenRouter API Key?</div>
+                        <div>Get your FREE API key at <a href="https://openrouter.ai/keys" target="_blank" class="help-link">openrouter.ai/keys</a></div>
+                        <div style="margin-top: 5px; font-size: 0.8rem; color: #9ca3af;">Free tier: 50 messages/day</div>
+                    </div>
+                </div>
+
+                <!-- Demo Mode Section -->
+                <div id="demo-mode-section" style="display: none; text-align: center; padding: 20px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">✅</div>
+                    <div style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin-bottom: 10px;">Demo Mode Active</div>
+                    <div style="color: var(--text-muted); line-height: 1.6;">
+                        No API key needed! You're running in Demo Mode with simulated responses.<br>
+                        All enhanced features are active and working without any API costs.
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; color: #22c55e;">
+                        🚀 Ready to use - just start chatting!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">↑</button>
+
+    <script>
+        // Typing Animation
+        const typingText = document.getElementById('typing-text');
+        const text = "An Enhanced DeepSeek-V3 with Persistent Memory & Emotional Intelligence";
+        
+        function typeWriter() {
+            let i = 0;
+            typingText.innerHTML = '';
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    typingText.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        typingText.style.borderRight = 'none';
+                    }, 1000);
+                }
+            }, 50);
+        }
+        
+        // Initialize typing after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+
+        // Stars Animation
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 4 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Data Rain Animation
+        function createDataRain() {
+            const rainContainer = document.getElementById('data-rain');
+            const columns = 20;
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.classList.add('rain-column');
+                column.style.left = (i * 5) + '%';
+                column.style.animationDelay = Math.random() * 15 + 's';
+                
+                let content = '';
+                for (let j = 0; j < 20; j++) {
+                    content += String.fromCharCode(Math.floor(Math.random() * 127) + 33);
+                }
+                column.innerHTML = content;
+                
+                rainContainer.appendChild(column);
+            }
+        }
+
+        // Neural Network Animation
+        function createNeuralNetwork() {
+            const networkContainer = document.getElementById('neural-network');
+            const connections = 50;
+            
+            for (let i = 0; i < connections; i++) {
+                const line = document.createElement('div');
+                line.classList.add('neural-line');
+                line.style.left = Math.random() * 100 + '%';
+                line.style.top = Math.random() * 100 + '%';
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                line.style.width = Math.random() * 200 + 'px';
+                line.style.animationDelay = Math.random() * 8 + 's';
+                networkContainer.appendChild(line);
+            }
+        }
+
+        // Progress Bars Animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const enhancement = entry.target.closest('.feature-card').dataset.enhancement;
+                        const fill = entry.target;
+                        let currentWidth = 0;
+                        const targetWidth = parseInt(enhancement);
+                        const increment = targetWidth / 50;
+                        
+                        const timer = setInterval(() => {
+                            if (currentWidth >= targetWidth) {
+                                clearInterval(timer);
+                                fill.style.width = targetWidth + '%';
+                            } else {
+                                currentWidth += increment;
+                                fill.style.width = currentWidth + '%';
+                            }
+                        }, 20);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Metrics Animation
+        function animateMetrics() {
+            const metrics = document.querySelectorAll('.metric-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const metric = entry.target;
+                        const target = parseInt(metric.dataset.target);
+                        const increment = target / 100;
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            if (current >= target) {
+                                clearInterval(timer);
+                                metric.textContent = target + (target === 1000000 ? '' : '%');
+                            } else {
+                                current += increment;
+                                metric.textContent = Math.floor(current) + (target === 1000000 ? '' : '%');
+                            }
+                        }, 20);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            metrics.forEach(metric => observer.observe(metric));
+        }
+
+        // Mouse Follow Effect
+        function setupMouseFollow() {
+            const mouseFollow = document.getElementById('mouse-follow');
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseFollow.style.opacity = '1';
+                mouseFollow.style.left = e.clientX + 'px';
+                mouseFollow.style.top = e.clientY + 'px';
+            });
+
+            document.addEventListener('mouseleave', () => {
+                mouseFollow.style.opacity = '0';
+            });
+        }
+
+        // Scroll Progress
+        function setupScrollProgress() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                scrollProgress.style.width = scrolled + '%';
+            });
+        }
+
+        // Back to Top Button
+        function setupBackToTop() {
+            const backToTop = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Copy to Clipboard Function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show copied feedback
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = 'var(--secondary-color)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // AI Chat Functionality
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-btn');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const clearButton = document.getElementById('clear-btn');
+
+        // OpenRouter API Configuration
+        const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+
+        // Chat State
+        let isTyping = false;
+        let conversationHistory = [];
+
+        // Initialize with welcome message
+        function initializeChat() {
+            // Add initial AI message
+            addMessage('Hello! I\'m Deep-Evolver, an enhanced AI assistant with persistent memory, emotional intelligence, and self-reflection capabilities. How can I help you today?', 'ai');
+        }
+
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${sender === 'ai' ? '🤖' : '👤'}</div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                    <div class="message-meta">${timestamp}</div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            typingIndicator.style.display = 'flex';
+            isTyping = true;
+        }
+
+        // Hide typing indicator
+        function hideTypingIndicator() {
+            typingIndicator.style.display = 'none';
+            isTyping = false;
+        }
+
+        // Send message function
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            
+            if (!message || isTyping) return;
+            
+            // Clear input
+            messageInput.value = '';
+            
+            // Add user message
+            addMessage(message, 'user');
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            try {
+                // Call appropriate API based on model selection
+                const response = await fetchOpenRouterResponse(message);
+                
+                // Hide typing indicator
+                hideTypingIndicator();
+                
+                // Add AI response
+                addMessage(response, 'ai');
+                
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage('I apologize, but I encountered an error. Please try again in a moment.', 'ai');
+                console.error('API Error:', error);
+            }
+        }
+
+        // OpenRouter API Response
+        async function fetchOpenRouterResponse(userMessage) {
+            const apiKey = getOpenRouterApiKey();
+            
+            if (!apiKey) {
+                return `I apologize, but I cannot connect to the OpenRouter API because no API key has been configured.
+
+Please add your OpenRouter API key by clicking the "Settings" button and selecting "OpenRouter API Key".
+
+You can get a free API key from openrouter.ai.
+
+In the meantime, here's a helpful response: ${getFallbackResponse(userMessage)}`;
+            }
+
+            try {
+                // Clean the API key - remove any whitespace or special characters
+                const cleanKey = apiKey.trim();
+                
+                // Create safe message content (remove any problematic characters)
+                const safeMessages = [{
+                    role: 'user',
+                    content: String(userMessage).replace(/[^\x00-\x7F]/g, '') // Remove non-ASCII
+                }];
+                
+                const response = await fetch(OPENROUTER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${cleanKey}`,
+                        'HTTP-Referer': 'https://xcodevoid.github.io/Deep-Evolver',
+                        'X-Title': 'Deep-Evolver'
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek/deepseek-r1:free',
+                        messages: safeMessages,
+                        temperature: 0.7,
+                        max_tokens: 1000
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    return `⚠️ Error ${response.status}: ${errorText.substring(0, 100)}`;
+                }
+                
+                const data = await response.json();
+                return data.choices[0].message.content;
+                
+            } catch (error) {
+                console.error('OpenRouter error:', error);
+                return "⚠️ Connection error. Please check your API key and try again.";
+            }
+        }
+
+        // Fallback responses for when API is unavailable
+        function getFallbackResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return 'Hello! I\'m Deep-Evolver, an enhanced AI assistant. While I\'m waiting for the API to come back online, I can tell you that I have features like persistent memory, emotional intelligence, and self-reflection capabilities!';
+            } else if (lowerMessage.includes('help')) {
+                return 'I\'m here to help! While the API is temporarily unavailable, you can try asking me about AI, technology, programming, or general knowledge questions. I\'ll do my best to assist you.';
+            } else if (lowerMessage.includes('creative')) {
+                return 'I love creative tasks! When the API is back online, I can help you write stories, poems, code, or generate creative ideas. For now, let me share a creative thought: "The universe is made of stories, not atoms." - Muriel Rukeyser';
+            } else {
+                return 'I appreciate your message! While I\'m waiting for the API connection, let me share some information about Deep-Evolver: It\'s an enhanced version of DeepSeek-V3 with features like persistent memory, emotional intelligence, and self-reflection capabilities. Would you like to know more about these features?';
+            }
+        }
+
+        // Clear chat function
+        function clearChat() {
+            chatMessages.innerHTML = '';
+            addMessage('Chat cleared. How can I help you today?', 'ai');
+        }
+
+        // Handle Enter key press
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Update send button state based on input
+        messageInput.addEventListener('input', () => {
+            sendButton.disabled = messageInput.value.trim().length === 0 || isTyping;
+        });
+
+        // Initialize chat when page loads
+        window.addEventListener('load', () => {
+            initializeChat();
+        });
+
+        // Settings Modal Functions
+        const settingsOverlay = document.getElementById('settings-overlay');
+
+        // Open Settings Modal
+        function openSettings() {
+            settingsOverlay.classList.add('active');
+            updateSettingsModal();
+        }
+
+        // Close Settings Modal
+        function closeSettings() {
+            settingsOverlay.classList.remove('active');
+        }
+
+        // Get OpenRouter API Key
+        function getOpenRouterApiKey() {
+            try {
+                return localStorage.getItem('openrouter_api_key');
+            } catch (error) {
+                console.error('Error retrieving OpenRouter API key:', error);
+                return null;
+            }
+        }
+
+        // Save OpenRouter API Key
+        function saveOpenRouterApiKey() {
+            const apiKey = document.getElementById('openrouter-api-key-input').value.trim();
+            
+            if (!apiKey) {
+                alert('Please enter a valid OpenRouter API key.');
+                return;
+            }
+
+            try {
+                localStorage.setItem('openrouter_api_key', apiKey);
+                updateOpenRouterStatus(true);
+                alert('OpenRouter API key saved successfully!');
+                
+                setTimeout(() => {
+                    closeSettings();
+                }, 1000);
+            } catch (error) {
+                console.error('Error saving OpenRouter API key:', error);
+                alert('Failed to save OpenRouter API key. Please try again.');
+            }
+        }
+
+        // Clear OpenRouter API Key
+        function clearOpenRouterApiKey() {
+            if (confirm('Are you sure you want to clear your OpenRouter API key?')) {
+                try {
+                    localStorage.removeItem('openrouter_api_key');
+                    document.getElementById('openrouter-api-key-input').value = '';
+                    updateOpenRouterStatus(false);
+                    alert('OpenRouter API key cleared successfully!');
+                } catch (error) {
+                    console.error('Error clearing OpenRouter API key:', error);
+                    alert('Failed to clear OpenRouter API key. Please try again.');
+                }
+            }
+        }
+
+        // Load OpenRouter API Key
+        function loadOpenRouterApiKey() {
+            try {
+                const savedKey = localStorage.getItem('openrouter_api_key');
+                const input = document.getElementById('openrouter-api-key-input');
+                const statusDot = document.getElementById('openrouter-status-dot');
+                const statusText = document.getElementById('openrouter-status-text');
+                
+                if (savedKey) {
+                    const maskedKey = '•'.repeat(savedKey.length - 4) + savedKey.slice(-4);
+                    input.value = maskedKey;
+                    statusDot.classList.add('active');
+                    statusText.textContent = 'API key configured';
+                    statusText.style.color = '#22c55e';
+                } else {
+                    input.value = '';
+                    statusDot.classList.remove('active');
+                    statusText.textContent = 'No API key configured';
+                    statusText.style.color = '#9ca3af';
+                }
+            } catch (error) {
+                console.error('Error loading OpenRouter API key:', error);
+                updateOpenRouterStatus(false);
+            }
+        }
+
+        // Update OpenRouter Status
+        function updateOpenRouterStatus(hasKey) {
+            const statusDot = document.getElementById('openrouter-status-dot');
+            const statusText = document.getElementById('openrouter-status-text');
+            
+            if (hasKey) {
+                statusDot.classList.add('active');
+                statusText.textContent = 'API key configured';
+                statusText.style.color = '#22c55e';
+            } else {
+                statusDot.classList.remove('active');
+                statusText.textContent = 'No API key configured';
+                statusText.style.color = '#9ca3af';
+            }
+        }
+
+        // Test OpenRouter Connection
+        async function testOpenRouterConnection() {
+            const apiKey = localStorage.getItem('openrouter_api_key');
+            
+            if (!apiKey) {
+                alert('Please enter an OpenRouter API key first.');
+                return;
+            }
+
+            const testBtn = document.querySelector('.test-btn');
+            const originalText = testBtn.textContent;
+            testBtn.textContent = 'Testing...';
+            testBtn.disabled = true;
+            testBtn.style.background = 'rgba(59, 130, 246, 0.3)';
+            testBtn.style.cursor = 'not-allowed';
+
+            try {
+                const response = await fetch(OPENROUTER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`,
+                        'HTTP-Referer': window.location.href,
+                        'X-Title': 'Deep-Evolver Demo',
+                        'User-Agent': 'Deep-Evolver-Web-Client/1.0'
+                    },
+                    body: JSON.stringify({
+                        "model": "deepseek/deepseek-r1:free",
+                        "messages": [{"role": "user", "content": "Hello, test connection."}],
+                        "stream": false
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.choices && data.choices.length > 0) {
+                        alert('✅ OpenRouter API Connection Successful!\n\nResponse received: ' + 
+                              data.choices[0].message.content.substring(0, 100) + '...');
+                        updateOpenRouterStatus(true);
+                    } else {
+                        throw new Error('Invalid response format');
+                    }
+                } else {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+
+            } catch (error) {
+                console.error('OpenRouter API Test Error:', error);
+                alert('❌ OpenRouter API Connection Failed!\n\nError: ' + error.message);
+                updateOpenRouterStatus(false);
+            } finally {
+                testBtn.textContent = originalText;
+                testBtn.disabled = false;
+                testBtn.style.background = 'rgba(59, 130, 246, 0.1)';
+                testBtn.style.cursor = 'pointer';
+            }
+        }
+
+        // Model Management
+        let currentModel = 'deepseek-free';
+
+        // Update model selection
+        function updateModel() {
+            const select = document.getElementById('model-select');
+            currentModel = select.value;
+            
+            // Update UI to show current model
+            const modelIndicator = document.querySelector('.model-indicator');
+            if (!modelIndicator) {
+                const statusContainer = document.querySelector('.chat-status');
+                const indicator = document.createElement('div');
+                indicator.className = 'model-indicator';
+                statusContainer.appendChild(indicator);
+            }
+            
+            const indicator = document.querySelector('.model-indicator');
+            switch(currentModel) {
+                case 'deepseek-paid':
+                    indicator.textContent = 'Paid model - requires DeepSeek credits';
+                    indicator.style.color = '#ef4444';
+                    break;
+                case 'deepseek-free':
+                    indicator.textContent = 'Free model - requires OpenRouter API key';
+                    indicator.style.color = '#f59e0b';
+                    break;
+                case 'demo-mode':
+                    indicator.textContent = 'Demo mode - no API key needed';
+                    indicator.style.color = '#22c55e';
+                    break;
+            }
+            
+            // Update settings modal if open
+            if (settingsOverlay.classList.contains('active')) {
+                updateSettingsModal();
+            }
+        }
+
+        // Dynamic Settings Modal Functions
+        function updateSettingsModal() {
+            const deepseekSection = document.getElementById('deepseek-section');
+            const openrouterSection = document.getElementById('openrouter-section');
+            const demoModeSection = document.getElementById('demo-mode-section');
+            
+            // Hide all sections first
+            deepseekSection.style.display = 'none';
+            openrouterSection.style.display = 'none';
+            demoModeSection.style.display = 'none';
+            
+            // Show appropriate section based on current model
+            switch(currentModel) {
+                case 'deepseek-paid':
+                    deepseekSection.style.display = 'block';
+                    loadDeepSeekApiKey();
+                    break;
+                case 'deepseek-free':
+                    openrouterSection.style.display = 'block';
+                    loadOpenRouterApiKey();
+                    break;
+                case 'demo-mode':
+                    demoModeSection.style.display = 'block';
+                    break;
+            }
+        }
+
+        // DeepSeek API Key Functions (for completeness)
+        function saveDeepSeekApiKey() {
+            const apiKey = document.getElementById('deepseek-api-key-input').value.trim();
+            
+            if (!apiKey) {
+                alert('Please enter a valid DeepSeek API key.');
+                return;
+            }
+
+            try {
+                localStorage.setItem('deepseek_api_key', apiKey);
+                updateDeepSeekStatus(true);
+                alert('DeepSeek API key saved successfully!');
+                
+                setTimeout(() => {
+                    closeSettings();
+                }, 1000);
+            } catch (error) {
+                console.error('Error saving DeepSeek API key:', error);
+                alert('Failed to save DeepSeek API key. Please try again.');
+            }
+        }
+
+        function clearDeepSeekApiKey() {
+            if (confirm('Are you sure you want to clear your DeepSeek API key?')) {
+                try {
+                    localStorage.removeItem('deepseek_api_key');
+                    document.getElementById('deepseek-api-key-input').value = '';
+                    updateDeepSeekStatus(false);
+                    alert('DeepSeek API key cleared successfully!');
+                } catch (error) {
+                    console.error('Error clearing DeepSeek API key:', error);
+                    alert('Failed to clear DeepSeek API key. Please try again.');
+                }
+            }
+        }
+
+        function loadDeepSeekApiKey() {
+            try {
+                const savedKey = localStorage.getItem('deepseek_api_key');
+                const input = document.getElementById('deepseek-api-key-input');
+                const statusDot = document.getElementById('deepseek-status-dot');
+                const statusText = document.getElementById('deepseek-status-text');
+                
+                if (savedKey) {
+                    const maskedKey = '•'.repeat(savedKey.length - 4) + savedKey.slice(-4);
+                    input.value = maskedKey;
+                    statusDot.classList.add('active');
+                    statusText.textContent = 'API key configured';
+                    statusText.style.color = '#22c55e';
+                } else {
+                    input.value = '';
+                    statusDot.classList.remove('active');
+                    statusText.textContent = 'No API key configured';
+                    statusText.style.color = '#9ca3af';
+                }
+            } catch (error) {
+                console.error('Error loading DeepSeek API key:', error);
+                updateDeepSeekStatus(false);
+            }
+        }
+
+        function updateDeepSeekStatus(hasKey) {
+            const statusDot = document.getElementById('deepseek-status-dot');
+            const statusText = document.getElementById('deepseek-status-text');
+            
+            if (hasKey) {
+                statusDot.classList.add('active');
+                statusText.textContent = 'API key configured';
+                statusText.style.color = '#22c55e';
+            } else {
+                statusDot.classList.remove('active');
+                statusText.textContent = 'No API key configured';
+                statusText.style.color = '#9ca3af';
+            }
+        }
+
+        function testDeepSeekConnection() {
+            const apiKey = localStorage.getItem('deepseek_api_key');
+            
+            if (!apiKey) {
+                alert('Please enter a DeepSeek API key first.');
+                return;
+            }
+
+            const testBtn = document.querySelector('.test-btn');
+            const originalText = testBtn.textContent;
+            testBtn.textContent = 'Testing...';
+            testBtn.disabled = true;
+            testBtn.style.background = 'rgba(59, 130, 246, 0.3)';
+            testBtn.style.cursor = 'not-allowed';
+
+            fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`,
+                    'User-Agent': 'Deep-Evolver-Web-Client/1.0'
+                },
+                body: JSON.stringify({
+                    "model": "deepseek-chat",
+                    "messages": [{"role": "user", "content": "Hello, test connection."}],
+                    "stream": false
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+            })
+            .then(data => {
+                if (data.choices && data.choices.length > 0) {
+                    alert('✅ DeepSeek API Connection Successful!\n\nResponse received: ' + 
+                          data.choices[0].message.content.substring(0, 100) + '...');
+                    updateDeepSeekStatus(true);
+                } else {
+                    throw new Error('Invalid response format');
+                }
+            })
+            .catch(error => {
+                console.error('DeepSeek API Test Error:', error);
+                alert('❌ DeepSeek API Connection Failed!\n\nError: ' + error.message);
+                updateDeepSeekStatus(false);
+            })
+            .finally(() => {
+                testBtn.textContent = originalText;
+                testBtn.disabled = false;
+                testBtn.style.background = 'rgba(59, 130, 246, 0.1)';
+                testBtn.style.cursor = 'pointer';
+            });
+        }
+
+        // Demo Mode Responses
+        function getDemoResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Simulate memory features
+            const memoryFeatures = [
+                "I remember our previous conversations and can build on them!",
+                "My persistent memory helps me maintain context across sessions.",
+                "I can recall important insights from our past interactions."
+            ];
+            
+            // Simulate emotional intelligence
+            const emotionalFeatures = [
+                "I can detect your emotional state and respond appropriately.",
+                "My emotional intelligence helps me provide empathetic responses.",
+                "I maintain mood consistency throughout our conversation."
+            ];
+            
+            // Simulate self-reflection
+            const reflectionFeatures = [
+                "I analyze my responses for clarity and helpfulness.",
+                "My self-reflection loop helps me improve continuously.",
+                "I maintain a confidence score for my knowledge."
+            ];
+            
+            // Simulate creativity
+            const creativityFeatures = [
+                "I can adjust my creativity based on the content type.",
+                "My style transfer capabilities let me mimic different authors.",
+                "I avoid repetitive patterns through novelty detection."
+            ];
+
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return `Hello! I'm Deep-Evolver in Demo Mode. 🧠
+
+✨ **Enhanced Features Active:**
+• ${memoryFeatures[Math.floor(Math.random() * memoryFeatures.length)]}
+• ${emotionalFeatures[Math.floor(Math.random() * emotionalFeatures.length)]}
+• ${reflectionFeatures[Math.floor(Math.random() * reflectionFeatures.length)]}
+• ${creativityFeatures[Math.floor(Math.random() * creativityFeatures.length)]}
+
+I'm running in Demo Mode without any API costs. How can I help you today?`;
+            }
+            
+            if (lowerMessage.includes('memory')) {
+                return `🧠 **Persistent Memory System Active**
+
+In Demo Mode, I simulate our advanced memory features:
+• Cross-session context retention
+• Automatic memory consolidation every 50 tokens
+• Compressed vector storage for important insights
+• Retrieval algorithms for relevant memories
+
+While this is simulated, the real Deep-Evolver remembers important details across conversations and uses them to provide more personalized responses!`;
+            }
+            
+            if (lowerMessage.includes('emotion')) {
+                return `❤️ **Emotional Intelligence Active**
+
+My emotional intelligence module is working:
+• Real-time sentiment analysis: ${Math.floor(Math.random() * 40) + 60}%
+• Mood consistency checker: ✅ Active
+• Personality parameters: Warm, Helpful, Professional
+
+I can detect your emotional state and adjust my responses to be more empathetic and appropriate to your needs.`;
+            }
+            
+            if (lowerMessage.includes('creative') || lowerMessage.includes('imagine')) {
+                return `🎨 **Creativity Dial Engaged**
+
+Creativity level: ${Math.floor(Math.random() * 30) + 70}%
+Content type detected: ${['Creative Writing', 'Technical Explanation', 'Storytelling', 'Problem Solving'][Math.floor(Math.random() * 4)]}
+
+My creativity control system:
+• Adjusts based on content type
+• Includes style transfer capabilities
+• Uses novelty detection to avoid repetition
+• Maintains n-gram diversity
+
+What would you like me to create or imagine for you?`;
+            }
+            
+            if (lowerMessage.includes('memory') && lowerMessage.includes('test')) {
+                return `🧪 **Memory Test Simulation**
+
+Let me demonstrate our memory capabilities:
+
+**Previous Conversation Context:**
+• User asked about memory features
+• User asked about emotional intelligence
+• Current topic: Memory testing
+
+**Memory Consolidation:** Every 50 tokens, I summarize key points into a memory stream. In this demo, I'm tracking our conversation about Deep-Evolver's features.
+
+**Retrieval:** I can access relevant memories to provide context-aware responses.
+
+In the real system, this memory persists across sessions!`;
+            }
+            
+            if (lowerMessage.includes('help')) {
+                return `🆘 **Deep-Evolver Demo Mode Help**
+
+**Available Models:**
+1. **DeepSeek Paid** - Requires DeepSeek credits (platform.deepseek.com)
+2. **DeepSeek Free** - Free via OpenRouter (openrouter.ai)
+3. **Demo Mode** - No API key needed (current mode)
+
+**Enhanced Features:**
+• 🧠 Persistent Memory - Remembers important insights
+• ❤️ Emotional Intelligence - Detects and responds to emotions
+• 🔄 Self-Reflection - Analyzes responses for improvement
+• ✅ Knowledge Verification - Confidence scoring for facts
+• 🎨 Creativity Dial - Adjusts creativity by content type
+• ⚡ Efficiency Optimizations - 2x faster inference
+• 🔍 Interactive Debugging - Developer tools and tracing
+
+**Try asking:**
+• "Explain quantum computing with emotional intelligence"
+• "Write a creative story about AI"
+• "Test my memory with a multi-step task"`;
+            }
+            
+            if (lowerMessage.includes('api') || lowerMessage.includes('key')) {
+                return `🔑 **API Configuration Guide**
+
+**DeepSeek Paid Model:**
+• Get API key from: platform.deepseek.com
+• Requires credits for usage
+• High performance and reliability
+
+**DeepSeek Free Model (OpenRouter):**
+• Get free API key from: openrouter.ai
+• Model: deepseek/deepseek-chat:free
+• No credits required
+
+**Demo Mode:**
+• No API key needed
+• Simulates all enhanced features
+• Perfect for showcasing capabilities
+
+To switch models, use the dropdown in the chat header!`;
+            }
+            
+            // Default response with enhanced features
+            return `🤖 **Deep-Evolver Response**
+
+I'm processing your message with enhanced capabilities:
+
+**Analysis Results:**
+• Memory integration: ${Math.floor(Math.random() * 20) + 80}%
+• Emotional resonance: ${Math.floor(Math.random() * 30) + 70}%
+• Creativity level: ${Math.floor(Math.random() * 40) + 60}%
+• Confidence score: ${Math.floor(Math.random() * 20) + 80}%
+
+**Response Generation:**
+${userMessage.length > 50 ? 'Analyzing complex query...' : 'Processing standard request...'}
+
+This response demonstrates our enhanced features working together to provide a more intelligent and context-aware experience!`;
+        }
+
+        // Enhanced fetch response function with model switching
+        async function fetchOpenRouterResponse(userMessage) {
+            switch(currentModel) {
+                case 'deepseek-paid':
+                    return await fetchDeepSeekPaidResponse(userMessage);
+                
+                case 'deepseek-free':
+                    return await fetchOpenRouterResponse(userMessage);
+                
+                case 'demo-mode':
+                    return getDemoResponse(userMessage);
+                
+                default:
+                    return await fetchOpenRouterResponse(userMessage);
+            }
+        }
+
+        // DeepSeek Paid API Response
+        async function fetchDeepSeekPaidResponse(userMessage) {
+            const apiKey = localStorage.getItem('deepseek_api_key');
+            
+            if (!apiKey) {
+                return `I apologize, but I cannot connect to the DeepSeek API because no API key has been configured.
+
+Please add your API key by clicking the "Settings" button and entering your key from platform.deepseek.com.
+
+In the meantime, here's a helpful response: ${getFallbackResponse(userMessage)}`;
+            }
+
+            try {
+                const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`,
+                        'User-Agent': 'Deep-Evolver-Web-Client/1.0'
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek-chat',
+                        messages: [
+                            {
+                                role: 'system',
+                                content: 'You are Deep-Evolver, an enhanced AI assistant with persistent memory, emotional intelligence, and self-reflection capabilities. You are helpful, creative, and provide detailed responses. You can use <explain> tags for detailed reasoning and <creative> tags for imaginative responses.'
+                            },
+                            {
+                                role: 'user',
+                                content: userMessage
+                            }
+                        ],
+                        temperature: 0.7,
+                        max_tokens: 1000,
+                        stream: false
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    if (response.status === 401) {
+                        return `I apologize, but the API key appears to be invalid or expired. Please check your API key in the Settings and try again.
+
+You can get a new API key at platform.deepseek.com.
+
+In the meantime, here's a helpful response: ${getFallbackResponse(userMessage)}`;
+                    }
+                    throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.choices && data.choices.length > 0) {
+                    return data.choices[0].message.content;
+                } else {
+                    throw new Error('No response from API');
+                }
+
+            } catch (error) {
+                console.error('DeepSeek API Error:', error);
+                return `I apologize, but I'm having trouble connecting to the DeepSeek API. This might be due to:
+                
+1. Invalid or missing API key
+2. Network connectivity issues
+3. API service temporarily unavailable
+
+Please check your API key in Settings and try again. You can get a free API key from platform.deepseek.com.
+
+In the meantime, here's a helpful response: ${getFallbackResponse(userMessage)}`;
+            }
+        }
+
+        // Override original openSettings function
+        function openSettings() {
+            settingsOverlay.classList.add('active');
+            updateSettingsModal();
+        }
+
+        // Override original updateModel function to update settings modal
+        function updateModel() {
+            const select = document.getElementById('model-select');
+            currentModel = select.value;
+            
+            // Update UI to show current model
+            const modelIndicator = document.querySelector('.model-indicator');
+            if (!modelIndicator) {
+                const statusContainer = document.querySelector('.chat-status');
+                const indicator = document.createElement('div');
+                indicator.className = 'model-indicator';
+                statusContainer.appendChild(indicator);
+            }
+            
+            const indicator = document.querySelector('.model-indicator');
+            switch(currentModel) {
+                case 'deepseek-paid':
+                    indicator.textContent = 'Paid model - requires DeepSeek credits';
+                    indicator.style.color = '#ef4444';
+                    break;
+                case 'deepseek-free':
+                    indicator.textContent = 'Free model - requires OpenRouter API key';
+                    indicator.style.color = '#f59e0b';
+                    break;
+                case 'demo-mode':
+                    indicator.textContent = 'Demo mode - no API key needed';
+                    indicator.style.color = '#22c55e';
+                    break;
+            }
+            
+            // Update settings modal if open
+            if (settingsOverlay.classList.contains('active')) {
+                updateSettingsModal();
+            }
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createDataRain();
+            createNeuralNetwork();
+            animateProgressBars();
+            animateMetrics();
+            setupMouseFollow();
+            setupScrollProgress();
+            setupBackToTop();
+            
+            // Initialize model selection
+            updateModel();
+        });
+    </script>
+</body>
+</html>
